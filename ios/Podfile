@@ -1,15 +1,15 @@
-# Uncomment the next line to define a global platform for your project
+# Plateforme minimale requise
 platform :ios, '12.0'
 
+# Désactiver les statistiques CocoaPods (optionnel)
+ENV['COCOAPODS_DISABLE_STATS'] = 'true'
+
+# Configuration des cibles
 target 'Runner' do
-  # Comment the next line if you don't want to use dynamic frameworks
+  # Utiliser les frameworks pour éviter certains problèmes de compatibilité
   use_frameworks!
+  use_modular_headers!
 
-  # Pods for Runner
-
-  target 'RunnerTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
+  # Installer les dépendances Flutter
+  flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
 end
