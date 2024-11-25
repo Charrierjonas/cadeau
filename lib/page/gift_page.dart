@@ -1,5 +1,5 @@
-import 'package:cadeau/model/cadeau.dart';
-import 'package:cadeau/page/home_page.dart';
+import 'package:Nume/model/cadeau.dart';
+import 'package:Nume/page/home_page.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';

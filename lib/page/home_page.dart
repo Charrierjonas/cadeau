@@ -1,6 +1,6 @@
-import 'package:cadeau/annimation/ouverture_cadeau.dart';
-import 'package:cadeau/model/cadeau.dart';
-import 'package:cadeau/page/gift_page.dart';
+import 'package:Nume/annimation/ouverture_cadeau.dart';
+import 'package:Nume/model/cadeau.dart';
+import 'package:Nume/page/gift_page.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
