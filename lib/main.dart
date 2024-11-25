@@ -45,7 +45,7 @@ class DecemberNavigator extends StatelessWidget {
     if (!isDecember) {
       // Avant décembre, on affiche une page "Arrive bientôt"
       return const ComingSoonPage();
-    } else if (dayOfMonth >= 1 && dayOfMonth <= 24) {
+    } else if (dayOfMonth >= 1 && dayOfMonth <= 30) {
       // En décembre, planifier une notification pour le jour
       // En décembre, vérifie si le cadeau du jour est ouvert
       return FutureBuilder<bool>(
