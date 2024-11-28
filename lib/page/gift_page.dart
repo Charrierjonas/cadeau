@@ -15,19 +15,11 @@ class GiftPage extends StatefulWidget {
 }
 
 class _GiftPageState extends State<GiftPage> {
-  bool _isButtonVisible = false;
+  bool _isButtonVisible = true;
 
   @override
   void initState() {
     super.initState();
-    _showButtonWithDelay();
-  }
-
-  Future<void> _showButtonWithDelay() async {
-    await Future.delayed(const Duration(seconds: 3));
-    setState(() {
-      _isButtonVisible = true;
-    });
   }
 
   Future<void> _markAsOpened() async {

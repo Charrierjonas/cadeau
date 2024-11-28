@@ -1,23 +1,28 @@
 import 'package:flutter/material.dart';
 
-class AnimatedGiftIcon extends StatefulWidget {
-  const AnimatedGiftIcon({super.key});
+class AnimatedHeartIcon extends StatefulWidget {
+  const AnimatedHeartIcon({super.key});
 
   @override
-  _AnimatedGiftIconState createState() => _AnimatedGiftIconState();
+  _AnimatedHeartIconState createState() => _AnimatedHeartIconState();
 }
 
-class _AnimatedGiftIconState extends State<AnimatedGiftIcon>
+class _AnimatedHeartIconState extends State<AnimatedHeartIcon>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
+  late Animation<double> _scaleAnimation;
 
   @override
   void initState() {
     super.initState();
     _controller = AnimationController(
-      duration: const Duration(seconds: 2),
+      duration: const Duration(seconds: 1),
       vsync: this,
-    )..repeat(); // Répète l'animation indéfiniment
+    )..repeat(reverse: true); // Répète l'animation en inversant
+
+    _scaleAnimation = Tween<double>(begin: 0.9, end: 1.0).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
+    );
   }
 
   @override
@@ -28,9 +33,10 @@ class _AnimatedGiftIconState extends State<AnimatedGiftIcon>
 
   @override
   Widget build(BuildContext context) {
-    return RotationTransition(
-      turns: _controller,
-      child: const Icon(Icons.card_giftcard, size: 100, color: Colors.red),
+    return ScaleTransition(
+      scale: _scaleAnimation,
+      child: const Icon(Icons.favorite,
+          size: 160, color: Color.fromARGB(255, 185, 40, 29)),
     );
   }
 }

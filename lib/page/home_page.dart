@@ -28,8 +28,12 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final DateTime now = DateTime.now();
-    final bool isDecember = now.month == 11 && now.year == 2024;
-    final int today = isDecember ? now.day : 0;
+    final bool isDecember = now.month == 11 && now.year == 2023;
+    var today = isDecember ? now.day : 0;
+    if (now.year >= 2023) {
+      today = 26;
+    }
+    //final bool depasse = (now.year >= 2023) ? true : false;
 
     return Scaffold(
       appBar: AppBar(
@@ -65,9 +69,7 @@ class HomePage extends StatelessWidget {
           int day = index + 1;
 
           if (day - 1 >= cadeaux.length) {
-            return const ListTile(
-              title: Text("Pas de cadeau pour ce jour."),
-            );
+            return null;
           }
 
           Cadeau cadeauDuJour = cadeaux[day - 1];

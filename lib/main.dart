@@ -39,15 +39,15 @@ class DecemberNavigator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final DateTime now = DateTime.now();
-    final bool isDecember = now.month == 11 && now.year == 2024;
+    final bool isDecember =
+        (now.month == 11 && now.year == 2023) || now.year > 2023;
     final int dayOfMonth = now.day;
 
     if (!isDecember) {
       // Avant décembre, on affiche une page "Arrive bientôt"
       return const ComingSoonPage();
-    } else if (dayOfMonth >= 1 && dayOfMonth <= 30) {
+    } else if (dayOfMonth >= 1 && dayOfMonth <= 24) {
       // En décembre, planifier une notification pour le jour
-      // En décembre, vérifie si le cadeau du jour est ouvert
       return FutureBuilder<bool>(
         future: checkIfOpened(dayOfMonth),
         builder: (context, snapshot) {
@@ -74,12 +74,7 @@ class DecemberNavigator extends StatelessWidget {
       );
     } else {
       // Si la date est en dehors de la plage du calendrier de l'avent
-      return const Scaffold(
-        body: Center(
-          child: Text("Cadeaux épuisés pour décembre!",
-              style: TextStyle(fontSize: 24)),
-        ),
-      );
+      return const HomePage();
     }
   }
 
