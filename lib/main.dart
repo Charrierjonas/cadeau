@@ -40,7 +40,7 @@ class DecemberNavigator extends StatelessWidget {
   Widget build(BuildContext context) {
     final DateTime now = DateTime.now();
     final bool isDecember =
-        (now.month == 11 && now.year == 2023) || now.year > 2023;
+        (now.month == 12 && now.year == 2024) || now.year > 2024;
     final int dayOfMonth = now.day;
 
     if (!isDecember) {

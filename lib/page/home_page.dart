@@ -17,23 +17,14 @@ class HomePage extends StatelessWidget {
     prefs.setBool('opened_$day', true);
   }
 
-  Future<void> resetAllGifts() async {
-    final prefs = await SharedPreferences.getInstance();
-    final keys = prefs.getKeys().where((key) => key.startsWith('opened_'));
-    for (var key in keys) {
-      await prefs.remove(key);
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     final DateTime now = DateTime.now();
-    final bool isDecember = now.month == 11 && now.year == 2023;
+    final bool isDecember = now.month == 12 && now.year == 2024;
     var today = isDecember ? now.day : 0;
-    if (now.year >= 2023) {
+    if (now.year >= 2024) {
       today = 26;
     }
-    //final bool depasse = (now.year >= 2023) ? true : false;
 
     return Scaffold(
       appBar: AppBar(
@@ -49,18 +40,6 @@ class HomePage extends StatelessWidget {
         ),
         backgroundColor: Colors.red,
         automaticallyImplyLeading: false,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.refresh),
-            onPressed: () async {
-              await resetAllGifts();
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                    content: Text("Tous les cadeaux ont été réinitialisés !")),
-              );
-            },
-          ),
-        ],
       ),
       body: ListView.builder(
         padding: const EdgeInsets.only(top: 16.0),

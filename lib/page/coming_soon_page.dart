@@ -7,7 +7,10 @@ class ComingSoonPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Text("Arrive bientôt !!", style: TextStyle(fontSize: 24)),
+        child: Text(
+            "Tu vas encore devoir attendre un peu ! \r\n Reviens le 1er décembre ;)",
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 24)),
       ),
     );
   }
