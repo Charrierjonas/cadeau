@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
     final DateTime now = DateTime.now();
     final bool isDecember = now.month == 12 && now.year == 2024;
     var today = isDecember ? now.day : 0;
-    if (now.year >= 2024) {
+    if (now.year > 2024) {
       today = 26;
     }
 
